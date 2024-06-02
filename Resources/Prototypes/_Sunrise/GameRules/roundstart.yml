@@ -1,0 +1,24 @@
+- type: entity
+  id: MuleSpawn
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: GameRule
+    minPlayers: 80
+  # - type: MuleRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ MuleAntag ]
+      max: 3
+      min: 2
+      playerRatio: 30
+      briefing:
+        text: mule-role-greeting
+        color: Crimson
+        sound: "" # TODO: record mule start sound
+      startingGear: MuleGear # TODO: create mule's gear
+      components:
+      - type: Mule
+      mindComponents:
+      - type: Mule
+

@@ -1,0 +1,11 @@
+- type: entity
+  abstract: true
+  parent: [BaseObjective, BaseStealObjective]
+  id: SecretDocumentsObjective
+  components:
+  - type: Objective
+    issuer: cartel
+  - type: RoleRequirement
+    roles:
+      components:
+      - ThiefRole

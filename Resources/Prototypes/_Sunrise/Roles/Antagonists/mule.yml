@@ -1,0 +1,17 @@
+- type: antag
+  id: MuleAntag
+  name: roles-antag-mule-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-mule-objective
+  # requirements:
+  # - !type:OverallPlaytimeRequirement
+  #   time: 36000
+
+
+- type: startingGear
+  id: MuleGear
+  # TODO: this
+  # storage:
+  #   back:
+  #     - SecretDocuments
