@@ -1,0 +1,11 @@
+- type: entity
+  id: BoxFolderTopSecret
+  parent: BoxFolderBase
+  suffix: Top Secret
+  components:
+  - type: Sprite
+    layers:
+    - state: folder-colormap
+      color: "#3f3f3f"
+    - state: folder-base
+  - type: MuleGoal

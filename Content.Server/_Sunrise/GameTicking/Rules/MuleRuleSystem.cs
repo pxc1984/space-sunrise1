@@ -35,20 +35,7 @@ namespace Content.Server.GameTicking.Rules;
 
 public sealed class MuleRuleSystem : GameRuleSystem<MuleRuleComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly EuiManager _euiMan = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly RoleSystem _role = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
 
     public override void Initialize()
@@ -74,7 +61,7 @@ public sealed class MuleRuleSystem : GameRuleSystem<MuleRuleComponent>
         args.Append(MakeBriefing(mind.OwnedEntity.Value));
     }
 
-    private string MakeBriefing(EntityUid thief)
+    private string MakeBriefing(EntityUid mule)
     {
         return Loc.GetString("mule-role-greeting") + "\n \n" + Loc.GetString("mule-role-greeting-equipment") + "\n";
     }
