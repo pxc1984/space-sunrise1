@@ -80,6 +80,9 @@ public sealed class EvilTwinSystem : EntitySystem
         {
             PrototypeId = EvilTwinRole,
         };
+
+        if (_roleSystem.MindHasRole<TraitorRoleComponent>(mindId))
+            return;
         _roleSystem.MindAddRole(mindId, role, mind);
         _mindSystem.TryAddObjective(mindId, mind, EscapeObjective);
         _mindSystem.TryAddObjective(mindId, mind, KillObjective);
