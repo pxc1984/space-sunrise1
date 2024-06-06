@@ -1,0 +1,11 @@
+- type: entity
+  id: LimboTransferAction
+  name: Отправиться в лимбо
+  description: Позволяет вам отправиться в лимбо.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Mobs/Ghosts/ghost_human.rsi
+      state: icon
+    event: !type:GoLimboActionEvent

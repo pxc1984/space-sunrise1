@@ -32,6 +32,7 @@
   - type: Examiner
     skipChecks: true
   - type: Ghost
+  - type: Limbonator
   - type: GhostHearing
   - type: MovementSpeedModifier
     baseSprintSpeed: 12
