@@ -1,0 +1,14 @@
+- type: entity
+  id: OpenEnderchestAction
+  name: Открыть блюспейс хранилище
+  description: Открывает ваше персональное блюспейс хранилище
+  noSpawn: true
+  components:
+  - type: InstantAction
+    # itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Objects/Storage/boxes.rsi
+      state: box_of_doom_big
+    itemIconStyle: NoItem
+    event: !type:EnderchestOpenActionEvent
