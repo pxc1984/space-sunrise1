@@ -89,3 +89,23 @@
   category: Disabilities
   components:
     - type: Snoring
+
+- type: trait  # Sunrise-traits
+  id: Tall
+  name: trait-tall-name
+  description: trait-tall-desc
+  category: Height
+  cost: 1
+  components:
+    - type: Sprite
+      scale: 1, 1.2
+
+- type: trait  # Sunrise-traits
+  id: Short
+  name: trait-short-name
+  description: trait-short-desc
+  category: Height
+  cost: 1
+  components:
+    - type: Sprite
+      scale: 1, 0.8
