@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseComputer
+  id: AutoMassmediaMonitor
+  name: auto massmedia monitor
+  suffix: DEV
+  components:
+  - type: AutoMassmediaMonitoring
+    keyWords: [ "death", "rev", "revs", "revolution" ]

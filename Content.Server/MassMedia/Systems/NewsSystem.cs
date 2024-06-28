@@ -115,6 +115,13 @@ public sealed class NewsSystem : SharedNewsSystem
         {
             RaiseLocalEvent(readerUid, ref args);
         }
+		// Sunrise-start
+		var query1 = EntityQueryEnumerator<AutoMassmediaMonitoringComponent>();
+		while (query1.MoveNext(out var uid, out _))
+		{
+			RaiseLocalEvent(uid, ref args);
+		}
+		// Sunrise-end
 
         UpdateWriterDevices();
     }
@@ -169,6 +176,13 @@ public sealed class NewsSystem : SharedNewsSystem
         {
             RaiseLocalEvent(readerUid, ref args);
         }
+		// Sunrise-start
+		var query1 = EntityQueryEnumerator<AutoMassmediaMonitoringComponent>();
+		while (query1.MoveNext(out var uid, out _))
+		{
+			RaiseLocalEvent(uid, ref args);
+		}
+		// Sunrise-end
 
         UpdateWriterDevices();
     }
