@@ -52,6 +52,10 @@ namespace Content.Server._Sunrise.StationGoal
                 if (selGoal is null)
                     return;
 
+                // Sunrise-start
+                station.SelGoalId = selGoal.ID;
+                // Sunrise-end
+
                 if (SendStationGoal(uid, selGoal))
                 {
                     Log.Info($"Goal {selGoal.ID} has been sent to station {MetaData(uid).EntityName}");

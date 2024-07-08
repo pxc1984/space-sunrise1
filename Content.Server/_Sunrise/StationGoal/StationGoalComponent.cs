@@ -7,5 +7,8 @@ namespace Content.Server._Sunrise.StationGoal
     {
         [DataField]
         public List<ProtoId<StationGoalPrototype>> Goals = new();
+
+        [DataField]
+        public string? SelGoalId;
     }
 }

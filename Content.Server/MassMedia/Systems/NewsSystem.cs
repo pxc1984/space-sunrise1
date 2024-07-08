@@ -4,6 +4,7 @@ using Content.Server.CartridgeLoader;
 using Content.Server.CartridgeLoader.Cartridges;
 using Content.Server.GameTicking;
 using System.Diagnostics.CodeAnalysis;
+using Content.Server._Sunrise.StationDeadsquad;
 using Content.Server.Access.Systems;
 using Content.Server.Popups;
 using Content.Shared.Access.Components;
@@ -169,6 +170,14 @@ public sealed class NewsSystem : SharedNewsSystem
         {
             RaiseLocalEvent(readerUid, ref args);
         }
+
+        // Sunrise-start
+        var monitoringQuery = EntityQueryEnumerator<StationMassmediaMonitoringComponent>();
+        while (monitoringQuery.MoveNext(out var monitoringUid, out var _))
+        {
+            RaiseLocalEvent(monitoringUid, ref args);
+        }
+        // Sunrise-end
 
         UpdateWriterDevices();
     }
