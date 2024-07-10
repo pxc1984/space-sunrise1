@@ -1,0 +1,35 @@
+- type: entity
+  id: ActionActivateStealthImplant
+  name: stealth
+  description: Go stealth.
+  components:
+  - type: InstantAction
+    useDelay: 10
+    charges: 3
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
+    event: !type:UseStealthImplantEvent
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: StealthImplant
+  name: stealth implant
+  description: This implant lets the user break out of hand restraints up to three times before ceasing to function anymore.
+  noSpawn: true
+  components:
+    - type: StealthImplant
+    - type: TriggerImplantAction
+    - type: SubdermalImplant
+      implantAction: ActionActivateStealthImplant
+
+- type: entity
+  id: StealthImplanter
+  name: stealth implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: StealthImplant
