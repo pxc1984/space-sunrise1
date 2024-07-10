@@ -1,0 +1,236 @@
+- type: entity
+  name: combat pistol VP-70
+  parent: BaseWeaponPistol
+  id: SUNRISECM14WeaponPistolVP78
+  components:
+  - type: Sprite
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Pistols/vp78/big.rsi
+  - type: Item
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Pistols/vp78/tiny.rsi
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_SUNRISE_CM14/Guns/Pistols/vp70_shot.ogg
+    soundEmpty:
+      path: /Audio/_SUNRISE_CM14/Guns/Pistols/vp70_empty.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: SUNRISECM14MagazineVP70
+        insertSound: /Audio/_SUNRISE_CM14/Guns/Pistols/vp70_reload.ogg
+        ejectSound: /Audio/_SUNRISE_CM14/Guns/Pistols/vp70_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - SUNRISECM14MagazineVP70
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifle  # 57x28
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLightRifle  # 57x28
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+
+
+- type: entity
+  name: Glock-22
+  parent: BaseWeaponPistol
+  id: SUNRISECM14WeaponPistolG22
+  components:
+  - type: Sprite
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Pistols/glock22/big.rsi
+  - type: Item
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Pistols/glock22/tiny.rsi
+  - type: Gun
+    fireRate: 10
+    availableModes:
+    - SemiAuto
+    - Burst
+    soundGunshot:
+      collection: glock22
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: SUNRISECM14MagazineGlock22
+        insertSound: /Audio/_SUNRISE_CM14/Guns/Pistols/glock22/glock22_reload.ogg
+        ejectSound: /Audio/_SUNRISE_CM14/Guns/Pistols/glock22/glock22_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - SUNRISECM14MagazineGlock22
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifle  # 57x28
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLightRifle  # 57x28
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/_SUNRISE_CM14/Guns/Pistols/glock22/glock22_cocked.ogg
+
+- type: entity
+  name: HI Browning-88 M4
+  parent: BaseWeaponPistol
+  id: SUNRISECM14WeaponPistolHIB88M4
+  components:
+  - type: Sprite
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Pistols/hi_browning/big.rsi
+  - type: Item
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Pistols/hi_browning/tiny.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_SUNRISE_CM14/Guns/Pistols/vp70_shot.ogg
+    soundEmpty:
+      path: /Audio/_SUNRISE_CM14/Guns/Pistols/vp70_empty.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: SUNRISECM14MagazineHIBrowning
+        insertSound: /Audio/_SUNRISE_CM14/Guns/Pistols/vp70_reload.ogg
+        ejectSound: /Audio/_SUNRISE_CM14/Guns/Pistols/vp70_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - SUNRISECM14MagazineHIBrowning
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgePistol
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+
+- type: entity
+  name: ACP-14
+  parent: BaseWeaponPistol
+  id: SUNRISECM14WeaponPistolACP14
+  components:
+  - type: Sprite
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Pistols/acp14/big.rsi
+  - type: Item
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Pistols/acp14/tiny.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: glock22
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: SUNRISECM14MagazineACP14
+        insertSound: /Audio/_SUNRISE_CM14/Guns/Pistols/glock22/glock22_reload.ogg
+        ejectSound: /Audio/_SUNRISE_CM14/Guns/Pistols/glock22/glock22_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - SUNRISECM14MagazineACP14
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgePistol
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+
+- type: entity
+  name: Mateba
+  parent: BaseWeaponRevolver
+  id: SUNRISECM14WeaponRevolverMatebaNew
+  components:
+  - type: Sprite
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Pistols/mateba/big.rsi
+  - type: Clothing
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Pistols/mateba/tiny.rsi
+  - type: Item
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Pistols/mateba/tiny.rsi
+  - type: Gun
+    fireRate: 3
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+
+- type: entity
+  name: Desert Eagle
+  parent: BaseWeaponPistol
+  id: SUNRISECM14WeaponPistolDEagle
+  components:
+  - type: Sprite
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Pistols/deagle/big.rsi
+  - type: Item
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Pistols/deagle/tiny.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: deagle
+      params:
+        volume: -1
+    soundEmpty:
+      path: /Audio/_SUNRISE_CM14/Guns/Pistols/deagle/deagle_empty.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: SUNRISECM14MagazineDeagle
+        insertSound: /Audio/_SUNRISE_CM14/Guns/Pistols/deagle/deagle_reload.ogg
+        ejectSound: /Audio/_SUNRISE_CM14/Guns/Pistols/deagle/deagle_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - SUNRISECM14MagazineDeagle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnum  # 050
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeMagnum  # 050
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot

@@ -1,0 +1,251 @@
+- type: entity
+  name: ручной огнемет М6
+  parent: BaseWeaponRifle
+  id: SUNRISECM14FirethrowerGun
+  components:
+  - type: Sprite
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Flamethrowers/M6/big.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Flamethrowers/M6/tiny.rsi
+  - type: Item
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Flamethrowers/M6/tiny.rsi
+  - type: Gun
+    projectileSpeed: 5
+    fireRate: 4
+    maxAngle: 5
+    minAngle: 5
+    soundGunshot:
+      path: /Audio/_SUNRISE_CM14/Guns/Flamethrowers/flamethrower.ogg
+    soundEmpty:
+      path: /Audio/_SUNRISE_CM14/Guns/Flamethrowers/flamethrower_empty.ogg
+  - type: AmmoCounter
+  - type: Appearance
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: SUNRISECM14FuelTankFlamethrower
+        insertSound: /Audio/_SUNRISE_CM14/Guns/Flamethrowers/flamethrower_reload.ogg
+        ejectSound: /Audio/_SUNRISE_CM14/Guns/Flamethrowers/flamethrower_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - SUNRISECM14FuelTankFlamethrower
+  - type: ChamberMagazineAmmoProvider
+    boltClosed: null
+  - type: MagazineAmmoProvider
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: Wieldable
+  - type: UseDelay
+    delay: 1.5
+  - type: GunRequiresWield
+  - type: SolutionContainerManager
+    solutions:
+      spray:
+        maxVol: 100
+        reagents:
+        - ReagentId: Water
+          Quantity: 100
+  - type: SolutionRegeneration
+    solution: spray
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 10
+  - type: RefillableSolution
+    solution: spray
+  - type: DrainableSolution
+    solution: spray
+  - type: SolutionTransfer
+  - type: Spray
+    transferAmount: 10
+    spraySound:
+      path: /Audio/Effects/extinguish.ogg
+    sprayedPrototype: ExtinguisherSpray
+    vaporAmount: 3
+    vaporSpread: 30
+    sprayVelocity: 2.0
+  - type: FireExtinguisher
+    hasSafety: true
+
+- type: entity
+  name: струя реактивного пламени
+  description: Очень горячо!
+  id: SUNRISECM14ParticlesFireNRF
+  components:
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+    blacklist:
+      tags:
+        - Catwalk
+  - type: Lava
+    fireStacks: 0.03
+  - type: Physics
+  - type: Sprite
+    layers:
+    - sprite: _SUNRISE_CM14/flame.rsi
+      state: fire
+      shader: unshaded
+      map: [ "unshaded" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        density: 7
+        shape:
+          !type:PhysShapeAabb
+           bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - MidImpassable
+  - type: Respirator
+    cycleDelay: 0.1
+    saturation: 0.1
+    maxSaturation: 0.1
+    damage:
+      types:
+        Asphyxiation: 10
+    damageRecovery:
+      types:
+        Asphyxiation: 0
+  - type: Temperature
+    coldDamage:
+      types:
+        Cold: 5 #per second, scales with temperature & other constants
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.10
+  - type: AtmosExposed
+  - type: TimedDespawn
+    lifetime: 100
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Heat: 5
+    soundHit:
+      path: "/Audio/Weapons/Guns/Hits/energy_meat1.ogg"
+  - type: AmbientSound
+    volume: 4
+    range: 7
+    sound:
+      path: /Audio/Effects/fire.ogg
+  - type: IgniteOnCollide
+    fireStacks: 1.8
+  - type: Transform
+    anchored: true
+  - type: IgnitionSource
+    temperature: 700
+    ignited: true
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Reactive
+    groups:
+      Flammable: [Touch]
+      Extinguish: [Touch]
+    reactions:
+    - reagents: [Water]
+      methods: [Touch]
+      effects:
+      - !type:HealthChange
+        scaled: true
+        damage:
+          types:
+            Heat: 10
+  - type: DamageContacts
+    damage:
+      types:
+        Heat: 10
+    ignoreWhitelist:
+      tags:
+      - SUNRISECM14NoSpinOnThrow
+
+- type: entity
+  name: Огнемет М6
+  parent: BaseItem
+  id: SUNRISECM14WeaponAdvancedFlamethrower
+  components:
+  - type: Sprite
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Flamethrowers/M6/big.rsi
+    state: base
+  - type: Item
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Flamethrowers/M6/tiny.rsi
+    size: Large
+  - type: Gun
+    projectileSpeed: 5
+    fireRate: 4
+    maxAngle: 5
+    minAngle: 5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_SUNRISE_CM14/Guns/Flamethrowers/flamethrower.ogg
+    soundEmpty:
+      path: /Audio/_SUNRISE_CM14/Guns/Flamethrowers/flamethrower_empty.ogg
+  - type: ClothingSlotAmmoProvider
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+      - SUNRISECM14PowerpackFlame
+  - type: Appearance
+  - type: Wieldable
+  - type: UseDelay
+    delay: 1.5
+  - type: GunRequiresWield
+
+- type: entity
+  id: SUNRISECM14PowerpackFlame
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+    - SUNRISECM14PowerpackFlame
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    slots: BACK
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Powerpacks/Powerpacks/flamepack.rsi
+  - type: BallisticAmmoProvider
+    proto: SUNRISECM14FireThrowerBall
+    mayTransfer: true
+    whitelist:
+      tags:
+      - SUNRISECM14FireThrowerBall
+    capacity: 1000
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Powerpacks/Powerpacks/flamepack.rsi
+    layers:
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance

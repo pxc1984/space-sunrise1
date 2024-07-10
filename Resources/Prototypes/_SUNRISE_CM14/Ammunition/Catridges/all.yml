@@ -1,0 +1,83 @@
+- type: entity
+  id: SUNRISECM14FireThrowerBall
+  name: реактивная смесь
+  parent: FoodInjectableBase
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    netsync: false
+    layers:
+    - state: blastwave
+  - type: DeleteOnTrigger
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 1
+  - type: Damageable
+    damageContainer: Biological
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SUNRISECM14ParticlesFireNRF:
+            min: 4
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3  # fite me
+        friction: 0.2
+  - type: PointLight
+    enabled: true
+    color: "#FF8080"
+    radius: 5.0
+    energy: 4.0
+  - type: Tag
+    tags:
+    - SUNRISECM14NoSpinOnThrow
+    - SUNRISECM14FireThrowerBall
+  - type: TimedDespawn
+    lifetime: 5
+  - type: EmbeddableProjectile
+    offset: 0.15,0.15
+  - type: ThrowingAngle
+    angle: 0
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Heat: 2
+
+- type: entity
+  id: SUNRISECM14CartridgeRocket20
+  parent: BaseCartridge
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - SUNRISECM14CartridgeRocket20
+  - type: Sprite
+    netsync: false
+    sprite: _SUNRISE_CM14/Entities/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: relsotrone-combat
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: SpentAmmoVisuals
+    state: relsotrone-combat
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: SUNRISECM14BulletRocket20
+  - type: Appearance
+  - type: StaticPrice
+    price: 10
