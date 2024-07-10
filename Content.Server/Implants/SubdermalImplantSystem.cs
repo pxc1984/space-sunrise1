@@ -18,11 +18,20 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using System.Numerics;
+using Content.Server.Actions;
+using Content.Server.Stealth;
+using Content.Shared.Actions;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Stealth.Components;
 using Content.Shared.Store.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
+using Robust.Shared.Toolshed.TypeParsers;
+using Robust.Shared.Utility;
+using Serilog;
 
 namespace Content.Server.Implants;
 
@@ -40,6 +49,10 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly StealthSystem _stealth = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly EntityManager _entMan = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private HashSet<Entity<MapGridComponent>> _targetGrids = [];
@@ -55,8 +68,50 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         SubscribeLocalEvent<SubdermalImplantComponent, ActivateImplantEvent>(OnActivateImplantEvent);
         SubscribeLocalEvent<SubdermalImplantComponent, UseScramImplantEvent>(OnScramImplant);
         SubscribeLocalEvent<SubdermalImplantComponent, UseDnaScramblerImplantEvent>(OnDnaScramblerImplant);
+        SubscribeLocalEvent<SubdermalImplantComponent, UseStealthImplantEvent>(OnStealthImplant);
 
     }
+
+    // Sunrise-start
+    private void OnStealthImplant(EntityUid uid, SubdermalImplantComponent component, UseStealthImplantEvent ev)
+    {
+        Log.Info($"onstealthimplant {uid}, {ev.Performer}");
+        if (!TryComp<StealthImplantComponent>(uid, out var stealthImplantComponent))
+            return;
+        if (!TryComp<ActionsComponent>(ev.Performer, out var actionsComponent))
+            return;
+
+        if (stealthImplantComponent.Enabled)
+        {
+            Log.Info($"disable");
+
+            // disable
+            if (!HasComp<StealthOnMoveComponent>(ev.Performer))
+                return;
+            RemComp<StealthOnMoveComponent>(ev.Performer);
+
+            if (!HasComp<StealthComponent>(ev.Performer))
+                return;
+            RemComp<StealthComponent>(ev.Performer);
+
+            _popup.PopupEntity("Выключен инвиз", ev.Performer, ev.Performer, PopupType.Large);
+            stealthImplantComponent.EnabledTime = null;
+        }
+        else
+        {
+            Log.Info($"enable");
+            // enable
+            stealthImplantComponent.EnabledTime = _timing.CurTime;
+            EnsureComp<StealthComponent>(ev.Performer, out var stealthComponent);
+            EnsureComp<StealthOnMoveComponent>(ev.Performer, out var stealthOnMoveComponent);
+            _stealth.SetVisibility(ev.Performer, stealthImplantComponent.TargetVisibility, stealthComponent);
+            _popup.PopupEntity("Включен инвиз", ev.Performer, ev.Performer, PopupType.Large);
+        }
+
+        stealthImplantComponent.Enabled = !stealthImplantComponent.Enabled;
+    }
+
+    // Sunrise-end
 
     private void OnStoreRelay(EntityUid uid, StoreComponent store, ImplantRelayEvent<AfterInteractUsingEvent> implantRelay)
     {

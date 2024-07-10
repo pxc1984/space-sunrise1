@@ -89,3 +89,12 @@ public sealed partial class UseDnaScramblerImplantEvent : InstantActionEvent
 {
 
 }
+
+// Sunrise-start
+
+public sealed partial class UseStealthImplantEvent : InstantActionEvent
+{
+
+}
+
+// Sunrise-end
