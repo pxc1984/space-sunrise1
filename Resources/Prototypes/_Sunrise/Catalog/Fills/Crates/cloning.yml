@@ -1,0 +1,48 @@
+- type: entity
+  id: ComputerCloningConsoleUnanchored
+  name: консоль клонирования
+  description: Центральный элемент системы клонирования, величайшее достижение медицины. У неё много портов и проводов.
+  suffix: Unanchored
+  parent: ComputerCloningConsole
+  components:
+    - type: Transform
+      anchored: false
+    - type: Physics
+      bodyType: Dynamic
+
+- type: entity
+  id: CloningPodUnanchored
+  name: капсула клонирования
+  description: Капсула клонирования. Надёжна на 50%.
+  suffix: Unanchored
+  parent: CloningPod
+  components:
+    - type: Transform
+      anchored: false
+    - type: Physics
+      bodyType: Dynamic
+
+- type: entity
+  id: MedicalScannerUnanchored
+  name: медицинский сканер
+  description: Огромный медицинский сканер.
+  suffix: Unanchored
+  parent: MedicalScanner
+  components:
+    - type: Transform
+      anchored: false
+    - type: Physics
+      bodyType: Dynamic
+
+- type: entity
+  id: CrateCloningKit
+  name: ящик с клонёркой
+  suffix: Filled
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: ComputerCloningConsoleUnanchored
+      - id: MedicalScannerUnanchored
+      - id: CloningPodUnanchored
+      - id: Multitool
