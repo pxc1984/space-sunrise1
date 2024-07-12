@@ -14,8 +14,8 @@
     minAngle: 10
     maxAngle: 30
   - type: Gun
-    minAngle: -20
-    maxAngle: -60
+    minAngle: 20
+    maxAngle: 60
     fireRate: 10
     soundGunshot:
       path: /Audio/_SUNRISE_CM14/Guns/SMGs/p90_shot.ogg

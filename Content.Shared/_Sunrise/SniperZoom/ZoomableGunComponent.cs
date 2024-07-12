@@ -1,13 +1,14 @@
 ﻿using System.Numerics;
 using Content.Shared._Sunrise.SniperZoom;
 using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._Sunrise.SniperZoom;
 
 /// <summary>
 /// This is used for...
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ZoomableGunComponent : Component
 {
     [DataField] public bool Enabled;

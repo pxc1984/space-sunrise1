@@ -53,7 +53,7 @@
     whitelist:
       tags:
       - CartridgeRocket
-    proto: CartridgeRocket
+    proto: CartridgeRocketNT
     capacity: 1
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg

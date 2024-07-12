@@ -112,7 +112,7 @@ public sealed class ZoomableGunSystem : EntitySystem
 
         if (!entityZoomableGunComponent.Comp.Wielded)
         {
-            _popup.PopupClient("must-be-wielded", Transform(args.Performer).Coordinates, args.Performer, PopupType.Medium);
+            _popup.PopupClient(Loc.GetString("wieldable-component-requires", ("item", MetaData(entityZoomableGunComponent.Owner).EntityName)), Transform(args.Performer).Coordinates, args.Performer, PopupType.Medium);
             return;
         }
 

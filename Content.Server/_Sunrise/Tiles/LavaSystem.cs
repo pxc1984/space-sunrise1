@@ -26,6 +26,8 @@ public sealed class LavaSystem : EntitySystem
 
     private void OnStepTriggered(EntityUid uid, LavaComponent component, ref StepTriggeredOnEvent args)
     {
+        Log.Info($"Step triggered {uid} {component.FireStacks}, {args.Tripper} {args.Source}");
+
         if (!TryComp<FlammableComponent>(args.Tripper, out var flammableComponent))
             return;
 
