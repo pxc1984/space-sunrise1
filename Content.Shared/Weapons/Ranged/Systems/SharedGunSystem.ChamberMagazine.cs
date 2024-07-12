@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._Sunrise.Guns;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -196,6 +197,11 @@ public abstract partial class SharedGunSystem
             }
 
             Audio.PlayPredicted(component.BoltOpenedSound, uid, user);
+
+            // Sunrise-start
+            var gunBoltOpenedEvent = new GunBoltOpenedEvent();
+            RaiseLocalEvent(uid, gunBoltOpenedEvent);
+            // Sunrise-end
         }
 
         component.BoltClosed = value;
