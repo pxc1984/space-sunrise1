@@ -43,6 +43,7 @@
   id: BaseStationShuttles
   abstract: true
   components:
+    - type: TradeStation  # Станция теперь трейдпост
 #    - type: StationCargoShuttle
 #      path: /Maps/Shuttles/cargo.yml
     - type: GridSpawn
