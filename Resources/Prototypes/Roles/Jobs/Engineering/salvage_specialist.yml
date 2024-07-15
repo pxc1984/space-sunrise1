@@ -11,7 +11,8 @@
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm
   access:
-  - Cargo
+#  - Cargo
+  - Engineering  # Sunrise-Cargo
   - Salvage
   - Maintenance
   - External

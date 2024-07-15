@@ -377,7 +377,7 @@
   parent: LockableButton
   components:
   - type: AccessReader
-    access: [["Quartermaster"]]
+    access: [["Cargo"]]  # Sunrise-edit
 
 - type: entity
   id: LockableButtonSalvage

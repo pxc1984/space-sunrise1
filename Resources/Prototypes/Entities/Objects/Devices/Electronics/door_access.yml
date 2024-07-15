@@ -111,7 +111,7 @@
   suffix: Quartermaster, Locked
   components:
   - type: AccessReader
-    access: [["Quartermaster"]]
+    access: [["Cargo"]]  # Sunrise-edit
 
 - type: entity
   parent: DoorElectronics

@@ -10,9 +10,16 @@
   id: Atmospherics
   name: id-card-access-level-atmospherics
 
+# Sunrise-start
+- type: accessLevel
+  id: Salvage
+  name: id-card-access-level-salvage
+# Sunrise-end
+
 - type: accessGroup
   id: Engineering
   tags:
   - ChiefEngineer
   - Engineering
   - Atmospherics
+  - Salvage  # Sunrise

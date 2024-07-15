@@ -42,7 +42,7 @@
     stateDoorOpen: qm_open
     stateDoorClosed: qm_door
   - type: AccessReader
-    access: [["Quartermaster"]]
+    access: [["Cargo"]]  # Sunrise-edit
 
 - type: entity
   id: LockerSalvageSpecialist

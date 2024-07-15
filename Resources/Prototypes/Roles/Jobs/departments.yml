@@ -4,8 +4,8 @@
   color: "#A46106"
   roles:
   - CargoTechnician
-  - Quartermaster
-  - SalvageSpecialist
+#  - Quartermaster
+#  - SalvageSpecialist
 
 - type: department
   id: Civilian
@@ -43,7 +43,7 @@
   - HeadOfPersonnel
   - HeadOfSecurity
   - ResearchDirector
-  - Quartermaster
+#  - Quartermaster
   primary: false
   weight: 100
 
@@ -55,6 +55,7 @@
   roles:
   - AtmosphericTechnician
   - ChiefEngineer
+  - SalvageSpecialist  # Sunrise-Cargo
   - SeniorEngineer  # Sunrise-Senior
   - StationEngineer
   - TechnicalAssistant

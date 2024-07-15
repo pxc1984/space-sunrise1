@@ -5,6 +5,7 @@
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 30
+  maxPlayers: 80
   stations:
     Boxstation:
       stationProto: StandardNanotrasenStation
@@ -34,6 +35,7 @@
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 5, 5 ]
             TechnicalAssistant: [ 4, 4 ]
+            SalvageSpecialist: [ 3, 3 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             SeniorPhysician: [ 1, 1 ]
@@ -59,8 +61,6 @@
             SecurityOfficer: [ 5, 5 ]
             SecurityCadet: [ 4, 4 ]
             #supply
-            Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 3 ]
             #civilian
             Passenger: [ -1, -1 ]
