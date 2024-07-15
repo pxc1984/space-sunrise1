@@ -251,16 +251,16 @@
   - type: Objective
     difficulty: 0.7
 
-- type: entity
-  parent: BaseThiefStealObjective
-  id: CargoShuttleCircuitboardStealObjective
-  components:
-  - type: NotJobRequirement
-    job: CargoTechnician
-  - type: StealCondition
-    stealGroup: CargoShuttleConsoleCircuitboard
-  - type: Objective
-    difficulty: 0.7
+#- type: entity
+#  parent: BaseThiefStealObjective
+#  id: CargoShuttleCircuitboardStealObjective
+#  components:
+#  - type: NotJobRequirement
+#    job: CargoTechnician
+#  - type: StealCondition
+#    stealGroup: CargoShuttleConsoleCircuitboard
+#  - type: Objective
+#    difficulty: 0.7
 
 - type: entity
   parent: BaseThiefStealObjective
