@@ -4,7 +4,7 @@
   color: "#A46106"
   roles:
   - CargoTechnician
-#  - Quartermaster
+  - Quartermaster
 #  - SalvageSpecialist
 
 - type: department
@@ -43,7 +43,7 @@
   - HeadOfPersonnel
   - HeadOfSecurity
   - ResearchDirector
-#  - Quartermaster
+  - Quartermaster
   primary: false
   weight: 100
 

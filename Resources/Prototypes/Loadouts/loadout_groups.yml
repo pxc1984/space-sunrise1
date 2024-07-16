@@ -518,45 +518,45 @@
   - Bagpipe
 
 # Cargo
-#- type: loadoutGroup
-#  id: QuartermasterHead
-#  name: loadout-group-quartermaster-head
-#  minLimit: 0
-#  loadouts:
-#  - QuartermasterHead
-#  - QuartermasterBeret
-#
-#- type: loadoutGroup
-#  id: QuartermasterJumpsuit
-#  name: loadout-group-quartermaster-jumpsuit
-#  loadouts:
-#  - QuartermasterJumpsuit
-#  - QuartermasterJumpskirt
-#  - QuartermasterTurtleneck
-#  - QuartermasterTurtleneckSkirt
-#  - QuartermasterFormalSuit
-#
-#- type: loadoutGroup
-#  id: QuartermasterNeck
-#  name: loadout-group-quartermaster-neck
-#  minLimit: 0
-#  loadouts:
-#  - QuartermasterCloak
-#  - QuartermasterMantle
-#
-#- type: loadoutGroup
-#  id: QuartermasterOuterClothing
-#  name: loadout-group-quartermaster-outerclothing
-#  minLimit: 0
-#  loadouts:
-#  - QuartermasterWintercoat
-#
-#- type: loadoutGroup
-#  id: QuartermasterShoes
-#  name: loadout-group-quartermaster-shoes
-#  loadouts:
-#  - BrownShoes
-#  - CargoWinterBoots
+- type: loadoutGroup
+  id: QuartermasterHead
+  name: loadout-group-quartermaster-head
+  minLimit: 0
+  loadouts:
+  - QuartermasterHead
+  - QuartermasterBeret
+
+- type: loadoutGroup
+  id: QuartermasterJumpsuit
+  name: loadout-group-quartermaster-jumpsuit
+  loadouts:
+  - QuartermasterJumpsuit
+  - QuartermasterJumpskirt
+  - QuartermasterTurtleneck
+  - QuartermasterTurtleneckSkirt
+  - QuartermasterFormalSuit
+
+- type: loadoutGroup
+  id: QuartermasterNeck
+  name: loadout-group-quartermaster-neck
+  minLimit: 0
+  loadouts:
+  - QuartermasterCloak
+  - QuartermasterMantle
+
+- type: loadoutGroup
+  id: QuartermasterOuterClothing
+  name: loadout-group-quartermaster-outerclothing
+  minLimit: 0
+  loadouts:
+  - QuartermasterWintercoat
+
+- type: loadoutGroup
+  id: QuartermasterShoes
+  name: loadout-group-quartermaster-shoes
+  loadouts:
+  - BrownShoes
+  - CargoWinterBoots
 
 - type: loadoutGroup
   id: CargoTechnicianHead

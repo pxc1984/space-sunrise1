@@ -41,7 +41,7 @@
       - Lawyer
       - Maintenance
       - Medical
-#      - Quartermaster
+      - Quartermaster
       - Research
       - ResearchDirector
       - Salvage
@@ -109,7 +109,7 @@
     - Lawyer
     - Maintenance
     - Medical
-#    - Quartermaster
+    - Quartermaster
     - Research
     - ResearchDirector
     - Salvage

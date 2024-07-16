@@ -255,25 +255,25 @@
   # Sunrise-end
 
 # Cargo
-#- type: roleLoadout
-#  id: JobQuartermaster
-#  groups:
-#  - GroupTankHarness
-#  - QuartermasterHead
-#  - QuartermasterNeck
-#  - QuartermasterJumpsuit
-#  - CargoTechnicianBackpack
-#  - QuartermasterOuterClothing
-#  - QuartermasterShoes
-#  - Glasses
-#  - Survival
-#  - Trinkets
-#  - GroupSpeciesBreathTool
-#  # Sunrise-start
-#  - Bra
-#  - Pants
-#  - Socks
-#  # Sunrise-end
+- type: roleLoadout
+  id: JobQuartermaster
+  groups:
+  - GroupTankHarness
+  - QuartermasterHead
+  - QuartermasterNeck
+  - QuartermasterJumpsuit
+  - CargoTechnicianBackpack
+  - QuartermasterOuterClothing
+  - QuartermasterShoes
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  # Sunrise-start
+  - Bra
+  - Pants
+  - Socks
+  # Sunrise-end
 
 - type: roleLoadout
   id: JobCargoTechnician
