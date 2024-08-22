@@ -142,7 +142,7 @@
   id: PlafeimTailDefault
   bodyPart: Tail
   markingCategory: Tail
-#  speciesRestriction: [Plafeim]
+  speciesRestriction: [ Plafeim ]
   sprites:
   - sprite: _Sunrise/Mobs/Species/Plafeim/parts.rsi
     state: tail_m
