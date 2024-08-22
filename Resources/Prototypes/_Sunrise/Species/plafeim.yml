@@ -138,11 +138,11 @@
     sprite: _Sunrise/Mobs/Species/Plafeim/parts.rsi
     state: r_foot
 
-- type: humanoidBaseSprite
+- type: marking
   id: PlafeimTailDefault
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Plafeim]
+#  speciesRestriction: [Plafeim]
   sprites:
-    sprite: _Sunrise/Mobs/Species/Plafeim/parts.rsi
+  - sprite: _Sunrise/Mobs/Species/Plafeim/parts.rsi
     state: tail_m

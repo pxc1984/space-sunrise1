@@ -15,7 +15,7 @@
     sprite: _Sunrise/Mobs/Species/Plafeim/parts.rsi
     state: full
   - type: Body
-    prototype: Plafeim
+    prototype: Vulpkanin  # Те же вульпы
     requiredLegs: 2
   - type: Inventory
     speciesId: reptilian
