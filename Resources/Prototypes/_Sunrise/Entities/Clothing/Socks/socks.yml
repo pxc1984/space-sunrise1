@@ -195,6 +195,21 @@
 
 - type: entity
   parent: ClothingSocksBaseButcherable
+  id: ClothingNormRed
+  name: красные носки
+  description: Красные носки.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Clothing/Socks/norm.rsi
+    layers:
+    - state: white_icon
+      color: "#FF0000"
+  - type: Clothing
+    sprite: _Sunrise/Clothing/Socks/norm.rsi
+    equippedState: red_norm
+
+- type: entity
+  parent: ClothingSocksBaseButcherable
   id: ClothingPantyhose
   name: колготки
   description: Эластичные колготки для ног.
