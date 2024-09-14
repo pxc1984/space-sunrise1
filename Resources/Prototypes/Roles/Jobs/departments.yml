@@ -83,6 +83,7 @@
   - Psychologist
   - Paramedic
   - MedicalBorg # Sunrise-Edit
+  - MedicalPathologist  # Sunrise-pathologist
 
 - type: department
   id: Security

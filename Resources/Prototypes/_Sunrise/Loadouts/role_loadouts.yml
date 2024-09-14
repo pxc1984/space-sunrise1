@@ -302,3 +302,20 @@
   - Bra
   - Pants
   - Socks
+
+- type: roleLoadout
+  id: JobMedicalPathologist
+  groups:
+  - MedicalMask
+  - MedicalDoctorJumpsuit
+  - MedicalGloves
+  - MedicalBackpack
+  - MedicalShoes
+  - GroupTankHarness
+  - Glasses
+  - SurvivalMedical
+  - Trinkets
+  - GroupSpeciesBreathToolMedical
+  - Bra
+  - Pants
+  - Socks

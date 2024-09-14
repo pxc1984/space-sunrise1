@@ -246,3 +246,14 @@
     sprite: _Sunrise/Clothing/Head/Hats/ntrep.rsi
   - type: Clothing
     sprite: _Sunrise/Clothing/Head/Hats/ntrep.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPatologonatHat
+  name: шапочка патологоаната
+  description: Черная шапочка пропитанная запахом гнили
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Clothing/Head/Hats/pathologist_helmet.rsi
+  - type: Clothing
+    sprite: _Sunrise/Clothing/Head/Hats/pathologist_helmet.rsi
