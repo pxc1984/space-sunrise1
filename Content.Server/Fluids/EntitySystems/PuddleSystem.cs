@@ -64,7 +64,12 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [ValidatePrototypeId<ReagentPrototype>]
     private const string CopperBlood = "CopperBlood";
 
+    [ValidatePrototypeId<ReagentPrototype>] // Sunrise-edit
+    private const string Water = "Water";   // Sunrise-edit
+
     private static string[] _standoutReagents = [Blood, Slime, CopperBlood];
+    private static string[] _transparentReagents = [Water]; // Sunrise-edit
+    private static string[] _nonStandardReagents = (_standoutReagents = _transparentReagents); // Sunrise-edit
 
     public static readonly float PuddleVolume = 1000;
 
@@ -365,7 +370,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             // Kinda EH
             // Could potentially do alpha per-solution but future problem.
 
-            color = solution.GetColorWithout(_prototypeManager, _standoutReagents);
+            color = solution.GetColorWithout(_prototypeManager, _nonStandardReagents); // Changed _standoutReagents to _nonStandardReagents. Sunrise-edit
             color = color.WithAlpha(0.7f);
 
             foreach (var standout in _standoutReagents)
@@ -378,6 +383,18 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
                 color = Color.InterpolateBetween(color,
                     _prototypeManager.Index<ReagentPrototype>(standout).SubstanceColor, interpolateValue);
             }
+            // Sunrise-start
+            foreach (var transparent in _transparentReagents)
+            {
+                var quantity = solution.GetTotalPrototypeQuantity(transparent);
+                if (quantity <= FixedPoint2.Zero)
+                    continue;
+
+                var interpolateValue = quantity.Float() / solution.Volume.Float();
+                color = Color.InterpolateBetween(color,
+                    _prototypeManager.Index<ReagentPrototype>(transparent).SubstanceColor.WithAlpha(0.4f), interpolateValue);
+            }
+            // Sunrise-end
         }
 
         _appearance.SetData(uid, PuddleVisuals.CurrentVolume, volume.Float(), appearance);
